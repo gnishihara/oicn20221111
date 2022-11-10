@@ -6,6 +6,8 @@ format:
   revealjs:
     embed-resources: true
     output-file: index.html
+    controls: true
+    touch: true
     theme: 
       - default
       - custom.scss
@@ -17,7 +19,44 @@ execute:
   echo: false
   warning: false
   freeze: true
+lang: ja
 ---
+
+## 藻場のブルーカーボンの現在と課題 {.smaller}
+
+::: columns
+::: {.column width="50%"}
+
+```{r}
+#| label: qrcode
+#| fig-align: center
+magick::image_read_svg("qrcode.svg", width = 700) |> 
+  magick::image_annotate("スライドデッキのURL", gravity = "north", size = 24,
+                         font = "Noto Sans CJK jp") |> 
+  magick::image_annotate("https://gnishihara.github.io/oicn20221111/", gravity = "south", size = 24)
+  
+```
+
+:::
+::: {.column width="50%"}
+**Greg Nishihara**
+
+**長崎大学海洋未来イノベーション機構**
+
+**スライドの操作について**
+
+- スライドのキーボードショートカットは `?` 
+- スライドの操作は矢印キー
+- PDF出力モードは　`E` 
+- 発表者ノートは `S` 
+- メニューは `M`
+
+:::
+スライドのファイルサイズは >45MB です。
+:::
+:::
+
+<https://gnishihara.github.io/oicn20221111/>
 
 # What is Blue Carbon? {background-color="blue"}
 
