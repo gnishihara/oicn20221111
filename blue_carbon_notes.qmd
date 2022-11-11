@@ -64,6 +64,8 @@ magick::image_read_svg("qrcode.svg", width = 700) |>
 
 <https://gnishihara.github.io/oicn20221111/>
 
+日本語ノート入り <https://gnishihara.github.io/oicn20221111/index-notes.html>
+
 # What is Blue Carbon? {background-color="blue"}
 
 ## Topics {visibility="hidden"}
@@ -991,5 +993,30 @@ The primary greenhouse gases are:
 -   Nitrous oxide (N~2~O)
 -   Methane (CH~4~)
 -   Ozone (O~3~)
+
+## QRCODE
+
+::: {layout-ncol=2}
+```{r}
+#| label: qrcode0
+#| fig-align: center
+magick::image_read_svg("qrcode.svg", width = 700) |> 
+  magick::image_annotate("スライドデッキ", gravity = "north", size = 24,
+                         font = "Noto Sans CJK jp") |> 
+  magick::image_annotate("https://gnishihara.github.io/oicn20221111/", gravity = "south", size = 24)
+  
+```
+
+
+```{r}
+#| label: qrcode1
+#| fig-align: center
+magick::image_read_svg("qrcode.svg", width = 700) |> 
+  magick::image_annotate("日本語ノート入りスライドデッキ", gravity = "north", size = 24,
+                         font = "Noto Sans CJK jp") |> 
+  magick::image_annotate("https://gnishihara.github.io/oicn20221111/index-notes.html", gravity = "south", size = 24)
+  
+```
+:::
 
 ## References {.smaller}
