@@ -8,7 +8,7 @@ format:
     output-file: index.html
     controls: true
     touch: true
-    show-notes: true
+    show-notes: false
     theme: 
       - default
       - custom.scss
