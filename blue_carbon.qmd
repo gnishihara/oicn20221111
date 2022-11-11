@@ -19,7 +19,7 @@ execute:
   echo: false
   warning: false
   freeze: true
-lang: ja
+lang: en
 ---
 
 ## 藻場のブルーカーボンの現在と課題 {.smaller}
@@ -37,21 +37,26 @@ magick::image_read_svg("qrcode.svg", width = 700) |>
   
 ```
 
+
+[Greg Nishihara]{style="color: #cc0000"}
+
+[長崎大学海洋未来イノベーション機構]{style="color: #cc0000"}
+
 :::
 ::: {.column width="50%"}
-**Greg Nishihara**
-
-**長崎大学海洋未来イノベーション機構**
 
 **スライドの操作について**
 
-- スライドのキーボードショートカットは `?` 
-- スライドの操作は矢印キー
-- PDF出力モードは　`E` 
-- 発表者ノートは `S` 
-- メニューは `M`
 
-:::
+|ショートカットキー| 操作|
+|:----------------:|:---:|
+|?                  | スライド操作表      |
+|左キー             |  前のスライドへ移動 |
+|右キー             |  次のスライドへ移動 |
+| E                 | PDF出力モード       |
+| S                 | 発表者モード        |
+| M                 | 操作メニュー　      |
+
 スライドのファイルサイズは >45MB です。
 :::
 :::
@@ -67,8 +72,6 @@ magick::image_read_svg("qrcode.svg", width = 700) |>
 -   Carbon sinks and flows in the marine ecosystems
 -   Hypotheses to be examined
 -   Definitions
-
-# Climate change timeline
 
 ## Brief history of climate change
 
@@ -202,7 +205,7 @@ dset |> mutate(across(starts_with("ppm"), \(x) ifelse(x < 0, NA, x))) |>
 - 北半球では地球寒冷化の現象は観測されていたが、南半球では同現象はなかった。これは北半球に集中する産業起源のエアロゾルとすすが原因だと考えらている。
 :::
 
-## Wigley and Jones
+## Hansen, Wigley, and Jones
 
 > The effects of CO~2~ may not be detectable until around the turn of the century [@wigley1981].
 
@@ -212,7 +215,9 @@ dset |> mutate(across(starts_with("ppm"), \(x) ifelse(x < 0, NA, x))) |>
 image_read("images/Wigley-Jones-1981.png")
 ```
 
+:::{style="font-size: 0.8em"}
 @hansen1981 also explains that the effects of increasing atmospheric CO~2~ will be clear by the 21st century. @jones1986 also demonstrated global warming from 1861 to 1984.
+:::
 
 ::: notes
 - ハンセン、ウィグリー、ジョーンズらは二酸化炭素濃度の上昇が及ぼす影響を詳細に解明した。
@@ -296,9 +301,6 @@ Confirmed by PAGES 2k [@continen2013] and by global warming skeptics [@a.muller2
 
 > Blue Carbon is carbon that is stored in coastal and marine ecosystems. 
 
-::: {.fragment}
-沿岸生態系と海洋生態系に貯蔵された炭素がブルーカーボンです。
-:::
 
 ::: notes
 **Blue carbon ecosystems** are highly productive coastal ecosystems that are capable of storing carbon within *plant biomass* and *sediments*.
@@ -631,14 +633,23 @@ The mermaid code for the diagram.
 
 ::: columns
 ::: {.column width="75%"}
-![](images/carboncycle2.png)
+
+```{r}
+#| label: carboncycle2
+image_read("images/carboncycle2.png") |> 
+  image_annotate("Nishihara 2022",
+                 gravity = "southeast",
+                 color = "grey50",
+                 size = 30)
+```
+
 :::
 ::: {.column width="25%"}
 
 Seaweed POC and DOC includes alginates, xylans, and sulphated polysaccharides that resist microbial decomposition　[@trevathan-tackett2015; @pedersen2021]. 
 :::
 :::
-eDNA of seaweeds have been found in marine sediments and in 2000 year-old sediments　[@zaborska2018;　@ortega2019; @ortega2020;  @frigstad2021].
+eDNA of seaweeds have been found in marine sediments and in 2000 year-old sediments [@zaborska2018;@ortega2019;@ortega2020; @frigstad2021].
 
 ::: notes
 -   大気と海の二酸化炭素は海面で出たり入ったりします。この二酸化炭素交換量（二酸化炭素フラックス）は大気中と表面海水中の二酸化炭素分圧の差とガス交換係数の積で求められます。
@@ -722,7 +733,19 @@ Biogenic calcification also consumes HCO~3~. Coccolithophores, calcifying macroa
 
 ## Ecosystem perspective
 
-![Carbon sequestration optimization [@atwood2015].](images/atwood2015.png)
+
+```{r}
+#| label: images/atwood2015
+
+image_read("images/atwood2015.png") |> 
+  image_border(color = "white", geometry = "40x40") |> 
+  image_annotate("Nishihara 2022",
+                 gravity = "southeast",
+                 color = "grey50",
+                 size = 30) 
+
+```
+
 
 ::: notes
 -   私の研究室が検討している仮説を紹介ます。
@@ -739,6 +762,8 @@ Biogenic calcification also consumes HCO~3~. Coccolithophores, calcifying macroa
 -   ピラミッドの下級に存在知るバイオマスが多いときこそ、生態系に多くの炭素が滞留するからです。
 -   下級クラスの生物がへると、海藻は確かに増えるが、その分のバイオマスが減るので、生態系そのもに滞留する炭素は少なくなります。
 -   研究室では、この図で描いた仮説を様々な視点から検証しています。
+
+参考文献：@atwood2015
 :::
 
 ## Nature-based climate solutions
@@ -818,7 +843,7 @@ image_read("images/tapy_a_2081934_f0005_b.jpg") |>
 
 ::: {.column width="50%"}
 - Net primary production (NPP) of at most 4000 g C m^-1^ cultivation rope (100 m).
-- Average harvested biomass contains about 15.8 g C m^-2^ cultivation rope.
+- Average harvested biomass contains about 15.8 g C m^-2^ cultivation area.
 -   41% of NPP lost to blade fall-off (detached from cultivation rope)
     -   4% (2 kg C / longline) sequestered in continental sediments
     -   10% (5.4 kg C / longline) sequestered in deep sea
@@ -851,9 +876,9 @@ image_read("images/tapy_a_2081934_f0005_b.jpg") |>
 :::
 
 ::: {.column width="50%"}
-- Average harvested kelp biomass contains about 15.8 g C m^-2^ cultivation rope [@dolliver2022].
-- Wakame harvested C was at most 14.1 g C m^-2^ [@sato2022].
-- Mozuku harvested C was 3.7 g C m^-2^ [@sato2022].
+- Average harvested kelp biomass contains about [15.8 g C m^-2^]{style="color: #cc0000"} cultivation rope [@dolliver2022].
+- Wakame（ワカメ）harvested C was at most [14.1 g C m^-2^]{style="color: #cc0000"} [@sato2022].
+- Mozuku（オキナワモズク） harvested C was [3.7 g C m^-2^]{style="color: #cc0000"} [@sato2022].
 - Hirota Bay wakame farm (229 ha) captures 32 tons C yr^-1^ [@sato2022].
 - Bise Point mozuku farm (24.7 ha ) captures 0.9 tons C yr^-1^ [@sato2022].
 :::
